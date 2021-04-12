@@ -1250,7 +1250,7 @@ class FurnitureEnv(metaclass=EnvMeta):
             "rotation": T.quat2mat(T.quat_multiply(old_quat, action[3:7])),
         }
 
-    def _get_obs(self):
+    def _get_obs(self, include_qpos=True):
         """
         Returns observation dictionary
         """

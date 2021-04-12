@@ -102,11 +102,11 @@ class FurnitureCursorEnv(FurnitureEnv):
         self._target_body1 = self.sim.model.body_id2name(id1)
         self._target_body2 = self.sim.model.body_id2name(id2)
 
-    def _get_obs(self):
+    def _get_obs(self, include_qpos=True):
         """
         Returns the current observation.
         """
-        state = super()._get_obs()
+        state = super()._get_obs(include_qpos=include_qpos)
 
         # proprioceptive features
         if self._robot_ob:
@@ -129,7 +129,7 @@ class FurnitureCursorEnv(FurnitureEnv):
         """
         Computes reward of the current state.
         """
-        return super()._compute_reward()
+        return super()._compute_reward(0)
 
 
 def main():

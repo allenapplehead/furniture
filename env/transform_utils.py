@@ -717,7 +717,8 @@ def angle_between(v1, v2):
 
 def cos_siml(a, b):
     """ Returns cos distance between vectors @a and @b """
-    return np.dot(a, b) / np.linalg.norm(a) / np.linalg.norm(b)
+    cos = np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+    return max(min(1., cos), -1.)
 
 
 def up_vector_cos_siml(quat1, quat2):
