@@ -231,7 +231,7 @@ class FurniturePandaEnv(FurnitureEnv):
         """
         Computes reward of the current state.
         """
-        return super()._compute_reward()
+        return super()._compute_reward(0)
 
 
 def main():
