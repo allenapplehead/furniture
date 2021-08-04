@@ -1767,9 +1767,9 @@ class FurnitureEnv(metaclass=EnvMeta):
             self.mujoco_robot.set_base_xquat([1, 0, 0, -1])
 
         elif self._agent_type == "Panda":
-            from env.models.robots import Panda
+            from panda_controller.panda_controller import SmartPanda
 
-            self.mujoco_robot = Panda(use_torque=use_torque)
+            self.mujoco_robot = SmartPanda(env = self)
             self.gripper = {"right": gripper_factory("PandaGripper")}
             self.gripper["right"].hide_visualization()
             self.mujoco_robot.add_gripper("right_hand", self.gripper["right"])
