@@ -298,6 +298,8 @@ class FurnitureEnv(metaclass=EnvMeta):
             self._demo.reset()
         self._reset(furniture_id=furniture_id, background=background)
         self._after_reset()
+        if self._agent_type == "Panda":
+            self.mujoco_robot.reset()
 
         ob = self._get_obs()
         if self._record_demo:
